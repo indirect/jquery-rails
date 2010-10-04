@@ -1,3 +1,14 @@
+## 0.2.2 (4 October 2010)
+
+Bugfix:
+
+  - Updated Readme with correct jquery default version
+
+Features:
+
+  - Allow specifying which version of jQuery UI to install
+
+
 ## 0.2.1 (2 October 2010)
 
 Bugfix:
