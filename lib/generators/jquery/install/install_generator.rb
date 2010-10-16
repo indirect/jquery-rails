@@ -3,7 +3,7 @@ module Jquery
     class InstallGenerator < ::Rails::Generators::Base
       desc "This generator downloads and installs jQuery, jQuery-ujs HEAD, and (optionally) jQuery UI 1.8.4"
       class_option :ui, :type => :boolean, :default => false, :desc => "Whether to Include JQueryUI"
-      class_option :version, :type => :string, :default => "1.4.1", :desc => "Which version of JQuery to fetch"
+      class_option :version, :type => :string, :default => "1.4.3", :desc => "Which version of JQuery to fetch"
       @@versions = %w( 1.4.3 1.4.2 1.4.1 1.4.0 1.3.2 1.3.1 1.3.0 1.2.6 )
 
 
