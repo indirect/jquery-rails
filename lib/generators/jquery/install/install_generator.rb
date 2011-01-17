@@ -38,7 +38,7 @@ module Jquery
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_PEER
         http.ca_file = File.join(File.dirname(__FILE__), "cacert.pem")
-        resp = http.request_get(url.to_s, 'public/javascripts/rails.js')
+        resp = http.request_get(url.to_s)
         open("public/javascripts/rails.js", "wb") {|file| 
           file.write(resp.body)
         }
