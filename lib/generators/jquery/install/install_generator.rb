@@ -1,6 +1,9 @@
 module Jquery
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
+      # Added to copy a local copy of rails.js to the filesystem as a workaround for the ssl errors many are receiving with github.
+      source_root File.expand_path('../templates', __FILE__)
+      
       desc "This generator downloads and installs jQuery, jQuery-ujs HEAD, and (optionally) the newest jQuery UI"
       class_option :ui, :type => :boolean, :default => false, :desc => "Include jQueryUI"
       class_option :version, :type => :string, :default => "1.5", :desc => "Which version of jQuery to fetch"
@@ -28,10 +31,11 @@ module Jquery
           get "http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js", "public/javascripts/jquery-ui.min.js"
         end
       end
-
+      
+      # Modified to workaround github SSL errors.
       def download_ujs_driver
-        say_status("fetching", "jQuery UJS adapter (github HEAD)", :green)
-        get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
+        say_status("Copying", "jQuery UJS adapter", :green)
+        copy_file "rails.js", "public/javascripts/rails.js"
       end
 
     private
