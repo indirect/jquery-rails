@@ -7,7 +7,7 @@ module Jquery
       @@default_version = "1.5"
 
       def remove_prototype
-        %w(controls.js dragdrop.js effects.js prototype.js).each do |js|
+        PROTOTYPE_JS.collect { |name| "#{name}.js" }.each do |js|
           remove_file "public/javascripts/#{js}"
         end
       end
