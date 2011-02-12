@@ -4,7 +4,7 @@ module Jquery
   module Rails
     class Railtie < ::Rails::Railtie
 
-      config.before_initialize do
+      config.before_configuration do
         require "jquery-rails/assert_select_jquery" if ::Rails.env.test?
 
         if ::Rails.root.join("public/javascripts/jquery-ui.min.js").exist?
