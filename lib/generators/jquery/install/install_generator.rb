@@ -31,7 +31,14 @@ module Jquery
 
       def download_ujs_driver
         say_status("fetching", "jQuery UJS adapter (github HEAD)", :green)
-        get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
+		http = Net::HTTP.new("www.github.com")
+		http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+		http.start { |http|
+          resp = http.get("/rails/jquery-ujs/raw/master/src/rails.js")
+          open("public/javascripts/rails.js", "wb") { |file|
+            file.write(resp.body)
+          }
+        }
       end
 
     private
