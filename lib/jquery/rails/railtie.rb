@@ -18,6 +18,7 @@ module Jquery
         config.action_view.javascript_expansions[:defaults] -= PROTOTYPE_JS + ['rails']
         config.action_view.javascript_expansions[:defaults] |= jq_defaults
         config.action_view.javascript_expansions[:defaults] << 'jquery_ujs'
+        config.action_view.javascript_expansions[:defaults] << 'rails'
       end
     end
 
