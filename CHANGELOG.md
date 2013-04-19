@@ -1,4 +1,4 @@
-## 2.0.3 (03 April 2012)
+## 2.0.3 (19 April 2013)
   - Updated to jQuery 2.0.0
   - Updated to jQuery YI 1.10.2
   - Updated to latest jquery-ujs
